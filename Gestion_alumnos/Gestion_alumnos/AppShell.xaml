@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <Shell
-    x:Class="Gestion_alumnos.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Gestion_alumnos"
-    Title="Gestion_alumnos">
+    x:Class="Gestion_alumnos.AppShell"
+    Title="Gestión de Alumnos">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+
+        <ShellContent
+            x:Name="EstudiantesTab"
+            Title="Estudiantes"
+            Route="Estudiantes" />
+
+        <ShellContent
+            x:Name="CalendarioTab"
+            Title="Calendario"
+            Route="Calendario" />
+
+        <ShellContent
+            x:Name="AsistenciaTab"
+            Title="Asistencia"
+            Route="Asistencia" />
+
+    </TabBar>
 
 </Shell>
