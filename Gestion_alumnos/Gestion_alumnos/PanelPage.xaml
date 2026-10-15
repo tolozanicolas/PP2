@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Gestion_alumnos.PanelPage"
+    Title="Panel de seguimiento">
+
+    <Grid Padding="20"
+          RowDefinitions="Auto,Auto,Auto,Auto,*"
+          RowSpacing="12">
+
+        <Label Grid.Row="0"
+               Text="Panel de seguimiento"
+               FontSize="24"
+               FontAttributes="Bold" />
+
+        <Picker Grid.Row="1"
+                Title="Seleccionar comisión"
+                SelectedItem="{Binding ComisionSeleccionada, Mode=TwoWay}">
+            <Picker.Items>
+                <x:String>1°A</x:String>
+                <x:String>1°B</x:String>
+                <x:String>2°A</x:String>
+                <x:String>2°B</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Button Grid.Row="2"
+                Text="Actualizar riesgos"
+                Command="{Binding ActualizarPanelCommand}" />
+
+        <Label Grid.Row="3"
+               Text="{Binding MensajeEstado}"
+               TextColor="Gray" />
+
+        <CollectionView Grid.Row="4"
+                        ItemsSource="{Binding EstudiantesRiesgo}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="#CCCCCC"
+                            StrokeThickness="1"
+                            Padding="12"
+                            Margin="0,5">
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <Label Text="{Binding NombreCompleto}"
+                                   FontAttributes="Bold"
+                                   FontSize="18" />
+
+                            <Label
+                                Text="{Binding PorcentajeRiesgo,
+                                StringFormat='Riesgo total: {0:F1}%'}" />
+
+                            <Label
+                                Text="{Binding NivelRiesgo,
+                                StringFormat='Nivel: {0}'}" />
+
+                            <Label
+                                Text="{Binding PorcentajeInasistencias,
+                                StringFormat='Inasistencias: {0:F1}%'}" />
+
+                            <Label
+                                Text="{Binding PorcentajeNoEntregas,
+                                StringFormat='Trabajos no entregados: {0:F1}%'}" />
+
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

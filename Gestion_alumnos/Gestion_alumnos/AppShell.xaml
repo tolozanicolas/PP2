@@ -23,6 +23,16 @@
             Title="Asistencia"
             Route="Asistencia" />
 
+        <ShellContent
+            x:Name="EntregasTab"
+            Title="Entregas"
+            Route="EntregaPage" />
+
+        <ShellContent
+            x:Name="PanelTab"
+            Title="Panel"
+            Route="PanelPage" />
+
     </TabBar>
 
 </Shell>

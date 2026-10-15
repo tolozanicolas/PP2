@@ -74,6 +74,12 @@
 	  <Compile Update="Asistencia Page.xaml.cs">
 	    <DependentUpon>Asistencia Page.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="EntregaPage.xaml.cs">
+	    <DependentUpon>EntregaPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="PanelPage.xaml.cs">
+	    <DependentUpon>PanelPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -81,6 +87,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Asistencia Page.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="EntregaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PanelPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

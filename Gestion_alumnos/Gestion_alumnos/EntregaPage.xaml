@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Gestion_alumnos.EntregaPage"
+    Title="Entregas">
+
+    <Grid Padding="20"
+          RowDefinitions="Auto,Auto,Auto,Auto,*,Auto"
+          RowSpacing="12">
+
+        <Label Grid.Row="0"
+               Text="Registro de entregas"
+               FontSize="24"
+               FontAttributes="Bold" />
+
+        <VerticalStackLayout Grid.Row="1" Spacing="5">
+            <Label Text="Seleccionar comisión" />
+
+            <Picker Title="Elegí una comisión"
+                    SelectedItem="{Binding ComisionSeleccionada, Mode=TwoWay}">
+                <Picker.Items>
+                    <x:String>1°A</x:String>
+                    <x:String>1°B</x:String>
+                    <x:String>2°A</x:String>
+                    <x:String>2°B</x:String>
+                </Picker.Items>
+            </Picker>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="2" Spacing="5">
+            <Label Text="Seleccionar trabajo práctico" />
+
+            <Picker Title="Elegí un trabajo"
+                    ItemsSource="{Binding TrabajosDisponibles}"
+                    SelectedItem="{Binding TrabajoSeleccionado, Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Nombre}" />
+        </VerticalStackLayout>
+
+        <Label Grid.Row="3"
+               Text="{Binding MensajeEstado}"
+               FontSize="14"
+               TextColor="Gray" />
+
+        <CollectionView Grid.Row="4"
+                        ItemsSource="{Binding EstudiantesEntrega}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto"
+                          Padding="10"
+                          ColumnSpacing="10">
+
+                        <Label Grid.Column="0"
+                               Text="{Binding NombreCompleto}"
+                               VerticalOptions="Center" />
+
+                        <CheckBox Grid.Column="1"
+                                  IsChecked="{Binding Entregado, Mode=TwoWay}"
+                                  VerticalOptions="Center" />
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button Grid.Row="5"
+                Text="Guardar entregas"
+                Command="{Binding GuardarEntregasCommand}"
+                IsEnabled="{Binding PuedeGuardar}" />
+
+    </Grid>
+</ContentPage>

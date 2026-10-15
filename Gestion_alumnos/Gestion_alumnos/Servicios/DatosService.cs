@@ -16,5 +16,7 @@ namespace Gestion_alumnos.Servicios
 
         public ObservableCollection<Asistencia> Asistencias { get; }
             = new ObservableCollection<Asistencia>();
+
+        public ObservableCollection<Entrega> Entregas { get; set; } = new();
     }
 }
